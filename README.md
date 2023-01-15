@@ -8,6 +8,14 @@
 - Add the actual values of EVN variables in `application.properties` file
 - Add the Vault URL and Root token in `bootstrap.yaml`
 
+## Images
+Flipt Configuration
+![alt text](./images/flipt_values.jpg)
+
+Vault Configuration
+![alt text](./images/vault_values.jpg)
+
+## Docker commands
 
 ```bash
 mvn clean install -DskipTests
