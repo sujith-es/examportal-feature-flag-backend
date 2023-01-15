@@ -1,20 +1,26 @@
 package com.exam;
 
-import com.exam.repo.QuizRepository;
-import com.exam.service.UserService;
+import com.exam.model.Role;
+import com.exam.model.User;
+import com.exam.model.UserRole;
+import com.exam.repo.RoleRepository;
+import com.exam.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @SpringBootApplication
 public class ExamserverApplication implements CommandLineRunner {
 
     @Autowired
-    public QuizRepository quizRepository;
+    public RoleRepository roleRepository;
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -27,44 +33,45 @@ public class ExamserverApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         System.out.println("starting code");
 
 //        try {
+//            User adminUser = this.userRepository.findByUsername("sujith");
 //
-//            User user = new User();
+//            if (adminUser == null || adminUser.getUsername().length() == 0) {
+//                User user = new User();
 //
-//            user.setFirstName("Durgesh");
-//            user.setLastName("Tiwari");
-//            user.setUsername("durgesh8896");
-//            user.setPassword(this.bCryptPasswordEncoder.encode("abc"));
-//            user.setEmail("abc@gmail.com");
-//            user.setProfile("default.png");
+//                user.setFirstName("Sujith");
+//                user.setLastName("Surendran");
+//                user.setUsername("sujith");
+//                user.setPassword(this.bCryptPasswordEncoder.encode("sujith"));
+//                user.setEmail("es.sujit@gmail.com");
+//                user.setPhone("9972417982");
+//                user.setEnabled(true);
+//                user.setProfile("default.png");
 //
-//            Role role1 = new Role();
-//            role1.setRoleId(44L);
-//            role1.setRoleName("ADMIN");
+//                Role role1 = new Role();
+//                role1.setRoleId(44L);
+//                role1.setRoleName("ADMIN");
 //
-//            Set<UserRole> userRoleSet = new HashSet<>();
-//            UserRole userRole = new UserRole();
+//                Set<UserRole> userRoleSet = new HashSet<>();
+//                UserRole userRole = new UserRole();
 //
-//            userRole.setRole(role1);
+//                userRole.setRole(role1);
 //
-//            userRole.setUser(user);
+//                userRole.setUser(user);
 //
-//            userRoleSet.add(userRole);
+//                userRoleSet.add(userRole);
+//                this.roleRepository.save(role1);
+//                User user1 = this.userRepository.save(user);
+//                System.out.println("ADMIN User created: " + user1.getUsername());
+//            }
 //
-//            User user1 = this.userService.createUser(user, userRoleSet);
-//            System.out.println(user1.getUsername());
 //
-//
-//        } catch (UserFoundException e) {
+//        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-
-
     }
-
-
 }

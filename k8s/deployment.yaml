@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: examp-app
+  name: examp-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: examp-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: examp-app
+    spec:
+      containers:
+      - image: sujithes/exam-portal:6
+        name: exam-app
+        readinessProbe:
+          httpGet:
+            port: 8888
+            path: /actuator/health/readiness
+        livenessProbe:
+          httpGet:
+            port: 8888
+            path: /actuator/health/liveness
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sh", "-c", "sleep 10"]
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+          requests:
+            cpu: 700m
+            memory: 512Mi
+status: {}

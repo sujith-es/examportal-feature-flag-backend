@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: javainuseapp
+  cloud:
+    vault:
+      host: k8s-vault-vaultalb-2671ec07b5-2054740361.us-east-2.elb.amazonaws.com
+      port: 80
+      scheme: http
+      token: hvs.c5JPJyldsvXq6VfeXFOpNQGQ

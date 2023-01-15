@@ -6,6 +6,7 @@ import com.flipt.api.core.Environment;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.annotation.PreDestroy;
 import java.io.IOException;
@@ -15,14 +16,15 @@ public class FliptConfiguration {
 
     private FliptApiClient fliptApiClient;
 
-    //    BearerAuth auth = BearerAuth.of(getToken());
-    BearerAuth auth = BearerAuth.of("");
+    @Value("${FLIPT_API_TOKEN}")
     private String token;
-    private String url = "";
+
+    @Value("${FLIPT_API_URL}")
+    private String url;
 
     @Bean
     public FliptApiClient fliptApiClient() {
-       this.fliptApiClient = new FliptApiClient(Environment.custom(url), auth);
+       this.fliptApiClient = new FliptApiClient(Environment.custom(url), BearerAuth.of(token));
        return this.fliptApiClient;
     }
 }
