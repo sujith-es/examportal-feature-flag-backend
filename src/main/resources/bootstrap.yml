@@ -3,7 +3,13 @@ spring:
     name: javainuseapp
   cloud:
     vault:
-      host: k8s-vault-vaultalb-2671ec07b5-2054740361.us-east-2.elb.amazonaws.com
+      host: <url>
       port: 80
       scheme: http
-      token: hvs.c5JPJyldsvXq6VfeXFOpNQGQ
+      token: <token>
+
+# Production vault, pass below form the CI tool like (jenkins, GitLab etc.)
+# Do not store the Vault in Git server
+
+# -Dspring.cloud.vault.host=vault-vaultalb-2671ec07b5-2054740361.us-east-2.elb.amazonaws.com
+# -Dspring.cloud.vault.token=00000000-0000-0000-0000-000000000000
