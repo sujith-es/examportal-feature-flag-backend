@@ -1,4 +1,7 @@
 
+- Add the actual values of EVN variables in `application.properties` file
+- Add the Vault URL and Root token in `bootstrap.yaml`
+
 
 ```bash
 mvn clean install -DskipTests
