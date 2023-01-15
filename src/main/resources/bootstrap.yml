@@ -8,7 +8,7 @@ spring:
       scheme: http
       token: <token>
 
-# Production vault, pass below form the CI tool like (jenkins, GitLab etc.)
+# Production vault, pass below from the CI tool like (jenkins, GitLab etc.)
 # Do not store the Vault in Git server
 
 # -Dspring.cloud.vault.host=vault-vaultalb-2671ec07b5-2054740361.us-east-2.elb.amazonaws.com
